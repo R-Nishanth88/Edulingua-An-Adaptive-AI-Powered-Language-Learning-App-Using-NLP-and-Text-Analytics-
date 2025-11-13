@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: edulingua-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_NAME
+        value: edulingua
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://edulingua-pro.vercel.app,https://*.vercel.app
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_API_BASE
+        value: https://openrouter.ai/api/v1
+      - key: OPENAI_MODEL
+        value: openai/gpt-3.5-turbo
+
+databases:
+  - name: edulingua-mongodb
+    databaseName: edulingua
+    plan: free
+
