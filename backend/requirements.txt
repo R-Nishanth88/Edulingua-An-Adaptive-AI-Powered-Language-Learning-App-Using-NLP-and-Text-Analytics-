@@ -18,7 +18,7 @@ sentence-transformers>=2.3.0
 # scikit-learn==1.3.2  # Removed - not compatible with Python 3.13, not critical for core features
 numpy>=1.24.3
 pandas>=2.1.3
-langdetect==1.0.9
+langdetect>=1.0.9
 pydantic>=2.5.0
 pydantic-settings>=2.1.0
 openai==1.3.5
